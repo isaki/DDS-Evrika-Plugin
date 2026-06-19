@@ -4,20 +4,40 @@ import hashlib
 import shutil
 import subprocess
 from krita import *
-from PyQt5.QtWidgets import (
-    QDialog,
-    QVBoxLayout,
-    QLabel,
-    QComboBox,
-    QPushButton,
-    QLineEdit,
-    QFormLayout,
-    QWidget,
-    QMessageBox,
-    QHBoxLayout,
-    QFileDialog
-)
-from PyQt5.QtCore import QLocale
+
+is_krita_v6 = Krita.instance().version().startswith("6")
+
+if is_krita_v6:
+    from PyQt6.QtWidgets import (
+        QDialog,
+        QVBoxLayout,
+        QLabel,
+        QComboBox,
+        QPushButton,
+        QLineEdit,
+        QFormLayout,
+        QWidget,
+        QMessageBox,
+        QHBoxLayout,
+        QFileDialog
+    )
+    from PyQt6.QtCore import QLocale
+else:
+    from PyQt5.QtWidgets import (
+        QDialog,
+        QVBoxLayout,
+        QLabel,
+        QComboBox,
+        QPushButton,
+        QLineEdit,
+        QFormLayout,
+        QWidget,
+        QMessageBox,
+        QHBoxLayout,
+        QFileDialog
+    )
+    from PyQt5.QtCore import QLocale
+
 from sys import platform
 
 # Version 1.1
